@@ -1,0 +1,529 @@
+{
+	"info": {
+		"_postman_id": "bc443707-6db1-4b9d-a59d-54a6a4bf4dd3",
+		"name": "PatronageLublinAPI",
+		"description": "### **Welcome on board!**\n\nHere you will find all API endpoints we use in our project.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ProductsWithoutAuth",
+			"item": [
+				{
+					"name": "GET /api/products/getAllProductsExternal",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/products/getAllProductsExternal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"getAllProductsExternal"
+							]
+						},
+						"description": "Get all products without authentication"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products/getAllPublishedProductsExternal",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/products/getAllPublishedProductsExternal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"getAllPublishedProductsExternal"
+							]
+						},
+						"description": "Get all published products without authentication"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products/external/:id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/products/external/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"external",
+								"1"
+							]
+						},
+						"description": "Get single products without authentication by its id."
+					},
+					"response": []
+				}
+			],
+			"description": "All routes for products without authentication",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "POST /api/products/addProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/products/addProduct",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"addProduct"
+							]
+						},
+						"description": "This route is for adding new product.\n\nTo add a new product:\n\n*   You must be authorized.\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Insert new product in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    \"published\": Boolen(initially false)  \n    }\n*   Send a request."
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products/getAllProducts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJFFPR21CbVM3bEVJZmNLNi5ad0paZGVwMy84T2VrZWdjL1NyM3UyUmNzbkM0dWZDWGNjN0VTIiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQxMToxMToxNy4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQxMToxMToxNy4wMDBaIn0sImlhdCI6MTY0NTA0NDkyNywiZXhwIjoxNjQ1NjQ5NzI3fQ.D_T6xVE2OAqnZKFC2gbdQ5HNd5xZjDRFEZ0a8a_-XCY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/products/getAllProducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"getAllProducts"
+							]
+						},
+						"description": "Get all products"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products/getAllPublishedProducts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/products/getAllPublishedProducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"getAllPublishedProducts"
+							]
+						},
+						"description": "Get all published products"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/products/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"2"
+							]
+						},
+						"description": "Get a single product by its id"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /api/products/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/products/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"2"
+							]
+						},
+						"description": "Update a single product by its id\n\nTo update a product:\n\n*   You must be authorized.\n*   Select a product id you want to change\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Select a field you want to update and write in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    \"published\": Boolen(initially false)  \n    }\n*   Send a request"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /api/products/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/products/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"2"
+							]
+						},
+						"description": "Delete a single product by its id"
+					},
+					"response": []
+				}
+			],
+			"description": "All routes for products. You must be authorized to access this page. To get authorized you have to navigate to the **Auth** routes and login with an existing user or register a new user then you should get your special ***token.***\n\nOnce you got your ***token:***\n\n*   Before sending a request open **Authorization** field.\n*   Make sure that that **Authorization** type is selected as **Bearer Token.**\n*   Provide your unique token in a special field **Token.**",
+			"auth": {
+				"type": "bearer"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "POST /api/auth/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Admin\",\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"A12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "If your don't have our own account you could login with our test user described below.\n\nBefore sending a request make sure you have filled all necessary field on **Body raw (JSON).**"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/auth/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Dmytro\",\r\n    \"email\": \"dmytro@email.com\",\r\n    \"password\": \"D12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Register by following an example below.\n\nBefore sending a request make sure you have filled all necessary field on **Body raw (JSON).**"
+					},
+					"response": []
+				}
+			],
+			"description": "All routes for authentication."
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "POST /api/categories/addCategory",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"books\",\r\n    \"description\": \"Enjoy reading books\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/categories/addCategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categories",
+								"addCategory"
+							]
+						},
+						"description": "This route is for adding new category.\n\nTo add a new category:\n\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Insert new category in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String  \n    }\n*   Send a request."
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categories"
+							]
+						},
+						"description": "Get all categories."
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/categories/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/categories/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categories",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /api/categories/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Books\",\r\n    \"description\": \"Enjoy reading books\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/categories/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categories",
+								"5"
+							]
+						},
+						"description": "Update a single category by its id\n\nTo update a category:\n\n*   Select a category id you want to change\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Select a field you want to update and write in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    }\n*   Send a request"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE  /api/categories/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/categories/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categories",
+								"1"
+							]
+						},
+						"description": "Delete a category by its id"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -8,9 +8,11 @@ const app = express()
 const notFoundMiddleware = require('./middleware/notFound');
 const errorHandlerMiddleware = require('./middleware/errorHandler');
 
-var corsOptions = {
-  origin: 'http://localhost:8080',
-};
+const corsOptions ={
+  origin:'*', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200,
+}
 // origin: 'mysql51.mydevil.net',
 
 app.use(cors(corsOptions))

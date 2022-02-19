@@ -16,7 +16,6 @@ const corsOptions ={
 // origin: 'mysql51.mydevil.net',
 
 app.use(cors(corsOptions))
-
 app.use(express.json())
 
 app.use(express.urlencoded({ extended: true }))
@@ -45,9 +44,13 @@ app.use(errorHandlerMiddleware)
 
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
-app.get('/', (req, res) => {
-  res.json({ message: 'hello' })
-})
+// Router for photo table
+const photosRouter = require('./routes/photosRouter.js');
+const photoTable = require('./middleware/photoTable.js');
+app.use('/api/photos', photoTable, photosRouter)
+
+app.use(notFoundMiddleware)
+app.use(errorHandlerMiddleware)
 
 const PORT = process.env.PORT || 8080
 

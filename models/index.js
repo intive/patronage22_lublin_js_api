@@ -26,6 +26,7 @@ db.sequelize = sequelize
 db.products = require('./Product')(sequelize, DataTypes)
 db.users = require('./User')(sequelize, DataTypes)
 db.categories = require('./Category')(sequelize, DataTypes)
+db.photos = require('./Photo')(sequelize, DataTypes)
 
 //if force:true all table data will be cleared on each server running
 db.sequelize.sync({ force: false })

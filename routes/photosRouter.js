@@ -6,15 +6,17 @@ router.post('/', photosController.addPhoto)
 
 router.get('/', photosController.getAllPhotos)
 
-router.get('/allActive', photosController.getAllActivePhotos)
+router.get('/getAllPhotosByProductId/:id', photosController.getAllPhotosByProductId)
 
-router.get('/allMain', photosController.getAllMainPhotos)
+router.get('/getMainPhotoByProductId/:id', photosController.getMainPhotoByProductId)
 
-router.get('/:id', photosController.getOnePhotoByProductId)
+router.get('/getOnePhotoById/:id', photosController.getOnePhotoById)
 
-router.put('/:id', photosController.updatePhotoByProductId)
+router.put('/updatePhotoById/:id', photosController.updatePhotoById)
 
-router.delete('/:id', photosController.deletePhotoByProductId)
+router.delete('/removeOneById/:id', photosController.removeOneById)
+
+router.delete('/removeAllByProductId/:id', photosController.removeAllByProductId)
 
 
 module.exports = router

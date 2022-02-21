@@ -6,9 +6,9 @@ const addPhoto = async (req, res) => {
   let productId = req.body.product_id;
   let photoDetails = {
     product_id: productId,
-    url: `http://localhost:8080/${req.file.path}`,
-    active: true,
-    main_photo: true,
+    url: `${process.env.PHOTO_URL}${req.file.path}`,
+    active: false,
+    main_photo: false,
   };
   let photo = await Photo.create(photoDetails).catch((err) => {
     console.log('Error' + err);
@@ -21,40 +21,48 @@ const getAllPhotos = async (req, res) => {
   res.status(200).send(photos);
 };
 
-const getOnePhotoByProductId = async (req, res) => {
+const getOnePhotoById = async (req, res) => {
   const id = req.params.id;
-  const photo = await Photo.findOne({ where: { product_id: id } });
+  const photo = await Photo.findOne({ where: { id: id } });
   res.status(200).send(photo);
 };
 
-const updatePhotoByProductId = async (req, res) => {
+const updatePhotoById = async (req, res) => {
   const id = req.params.id;
-  const photo = await Photo.update(req.body, { where: { product_id: id } });
+  const photo = await Photo.update(req.body, { where: { id: id } });
   res.status(200).send(photo);
 };
 
-const deletePhotoByProductId = async (req, res) => {
+const removeOneById = async (req, res) => {
+  const id = req.params.id
+  await Photo.destroy({ where: {id: id }})
+  res.status(200).send('Photo is deleted')
+}
+const removeAllByProductId = async (req, res) => {
   const id = req.params.id;
   await Photo.destroy({ where: { product_id: id } });
-  res.status(200).send('Photo is deleted');
+  res.status(200).send('Photos are deleted');
 };
 
-const getAllActivePhotos = async (req, res) => {
-  const photos = await Photo.findAll({ where: { active: true } });
+const getAllPhotosByProductId = async (req, res) => {
+  const id = req.params.id;
+  const photos = await Photo.findAll({ where: { product_id: id } });
   res.status(200).send(photos);
 };
 
-const getAllMainPhotos = async (req, res) => {
-  const photos = await Photo.findAll({ where: { main_photo: true } });
-  res.status(200).send(photos);
+const getMainPhotoByProductId = async (req, res) => {
+  const id = req.params.id;
+  const photo = await Photo.findOne({ where: { product_id: id, main_photo: true } });
+  res.status(200).send(photo);
 };
 
 module.exports = {
   addPhoto,
   getAllPhotos,
-  getAllActivePhotos,
-  getAllMainPhotos,
-  getOnePhotoByProductId,
-  updatePhotoByProductId,
-  deletePhotoByProductId,
+  getAllPhotosByProductId,
+  getMainPhotoByProductId,
+  getOnePhotoById,
+  updatePhotoById,
+  removeOneById,
+  removeAllByProductId,
 };

@@ -590,12 +590,12 @@
 					"response": []
 				},
 				{
-					"name": "GET /api/photos/allActive",
+					"name": "GET /api/photos/getAllPhotosByProductId/:id",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/photos/allActive",
+							"raw": "http://localhost:8080/api/photos/getAllPhotosByProductId/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -604,19 +604,20 @@
 							"path": [
 								"api",
 								"photos",
-								"allActive"
+								"getAllPhotosByProductId",
+								"1"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "GET /api/photos/allMain",
+					"name": "GET /api/photos/getMainPhotoByProductId",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/photos/allMain",
+							"raw": "http://localhost:8080/api/photos/getMainPhotoByProductId/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -625,14 +626,15 @@
 							"path": [
 								"api",
 								"photos",
-								"allMain"
+								"getMainPhotoByProductId",
+								"3"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "GET /api/photos/:id",
+					"name": "GET /api/photos/getOnePhotoById",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -653,12 +655,12 @@
 					"response": []
 				},
 				{
-					"name": "PUT /api/photos/:id",
+					"name": "PUT /api/photos/updatePhotoById/:id",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/photos/1",
+							"raw": "http://localhost:8080/api/photos/updatePhotoById/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -667,14 +669,15 @@
 							"path": [
 								"api",
 								"photos",
-								"1"
+								"updatePhotoById",
+								"2"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "DELETE /api/photos/1",
+					"name": "DELETE /api/photos/removeOneById/:id",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -691,6 +694,14 @@
 								"1"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /api/photos/removeAllByProductId/:id",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}

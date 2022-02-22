@@ -51,10 +51,25 @@ const login = async (req, res) => {
   const token = jwt.sign({ user }, 'jwtSecret', {
     expiresIn: '7d',
   });
+  res.cookie('jwt', token)
   res.status(StatusCodes.OK).json({ user: { name: user.name }, token });
 };
 
+
+const logout = (req, res, next) => {
+    res.cookie('token', null, {
+      httpOnly: true,
+    })
+    res.clearCookie("jwt");
+
+    res.status(200).json({
+      success: true,
+      data: {},
+    })
+};
+    
 module.exports = {
   register,
   login,
+  logout,
 };

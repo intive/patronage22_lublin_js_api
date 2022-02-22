@@ -8,8 +8,8 @@ const app = express()
 const notFoundMiddleware = require('./middleware/notFound');
 const errorHandlerMiddleware = require('./middleware/errorHandler');
 
-const corsOptions ={
-  origin:'*', 
+const corsOptions = {
+  origin:'*',
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200,
 }
@@ -38,10 +38,6 @@ app.use('/api/auth', authRouter)
 //Router for uploading images
 const uploadRouter = require('./routes/uploadRouter.js')
 app.use('/api/upload', uploadRouter)
-
-app.use(notFoundMiddleware)
-app.use(errorHandlerMiddleware)
-
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
 // Router for photo table
@@ -49,8 +45,8 @@ const photosRouter = require('./routes/photosRouter.js');
 const photoTable = require('./middleware/photoTable.js');
 app.use('/api/photos', photoTable, photosRouter)
 
-app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
+app.use(notFoundMiddleware)
 
 const PORT = process.env.PORT || 8080
 

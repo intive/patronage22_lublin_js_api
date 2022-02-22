@@ -7,7 +7,7 @@ const addPhoto = async (req, res) => {
   let photoDetails = {
     product_id: productId,
     url: `${process.env.PHOTO_URL}${req.file.path}`,
-    active: false,
+    active: true,
     main_photo: false,
   };
   let photo = await Photo.create(photoDetails).catch((err) => {
@@ -21,7 +21,7 @@ const getAllPhotos = async (req, res) => {
   res.status(200).send(photos);
 };
 
-const getOnePhotoById = async (req, res) => {
+const getPhotoById = async (req, res) => {
   const id = req.params.id;
   const photo = await Photo.findOne({ where: { id: id } });
   res.status(200).send(photo);
@@ -33,12 +33,12 @@ const updatePhotoById = async (req, res) => {
   res.status(200).send(photo);
 };
 
-const removeOneById = async (req, res) => {
+const deletePhotoById = async (req, res) => {
   const id = req.params.id
   await Photo.destroy({ where: {id: id }})
   res.status(200).send('Photo is deleted')
 }
-const removeAllByProductId = async (req, res) => {
+const removeAllPhotosByProductId = async (req, res) => {
   const id = req.params.id;
   await Photo.destroy({ where: { product_id: id } });
   res.status(200).send('Photos are deleted');
@@ -61,8 +61,8 @@ module.exports = {
   getAllPhotos,
   getAllPhotosByProductId,
   getMainPhotoByProductId,
-  getOnePhotoById,
+  getPhotoById,
   updatePhotoById,
-  removeOneById,
-  removeAllByProductId,
+  deletePhotoById,
+  removeAllPhotosByProductId,
 };

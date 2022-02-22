@@ -10,13 +10,13 @@ router.get('/getAllPhotosByProductId/:id', photosController.getAllPhotosByProduc
 
 router.get('/getMainPhotoByProductId/:id', photosController.getMainPhotoByProductId)
 
-router.get('/getOnePhotoById/:id', photosController.getOnePhotoById)
+router.get('/getPhotoById/:id', photosController.getPhotoById)
 
 router.put('/updatePhotoById/:id', photosController.updatePhotoById)
 
-router.delete('/removeOneById/:id', photosController.removeOneById)
+router.delete('/deletePhotoById/:id', photosController.deletePhotoById)
 
-router.delete('/removeAllByProductId/:id', photosController.removeAllByProductId)
+router.delete('/removeAllPhotosByProductId/:id', photosController.removeAllPhotosByProductId)
 
 
 module.exports = router

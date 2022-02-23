@@ -13,4 +13,4 @@ You can find API documentation here: */postman/PatronageLublinAPI.postman_collec
 }
 ``` 
 ### ENV
-To use photo table functionality correctly please create `.env` file in your root directory with `PHOTO_URL=http://localhost:8080`
+To use photo table functionality correctly please create `.env` file in your root directory with `PHOTO_URL=http://localhost:8080/`

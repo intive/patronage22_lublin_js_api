@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bc443707-6db1-4b9d-a59d-54a6a4bf4dd3",
+		"_postman_id": "718129e2-0b9c-4b70-bcf0-45d1d0d6e015",
 		"name": "PatronageLublinAPI",
 		"description": "### **Welcome on board!**\n\nHere you will find all API endpoints we use in our project.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -520,6 +520,203 @@
 							]
 						},
 						"description": "Delete a category by its id"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Photo",
+			"item": [
+				{
+					"name": "POST /api/photos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "product_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/photos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/photos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/photos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/photos/getAllPhotosByProductId/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/photos/getAllPhotosByProductId/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photos",
+								"getAllPhotosByProductId",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/photos/getMainPhotoByProductId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/photos/getMainPhotoByProductId/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photos",
+								"getMainPhotoByProductId",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/photos/getPhotoById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/photos/getPhotoById/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photos",
+								"getPhotoById",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /api/photos/updatePhotoById/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/photos/updatePhotoById/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photos",
+								"updatePhotoById",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /api/photos/deletePhotoById/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/photos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /api/photos/removeAllPhotosByProductId/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/photos/removeAllPhotosByProductId/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photos",
+								"removeAllPhotosByProductId",
+								"1"
+							]
+						}
 					},
 					"response": []
 				}

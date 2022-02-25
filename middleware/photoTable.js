@@ -1,18 +1,18 @@
-const { StatusCodes } = require('http-status-codes');
-const multer = require('multer');
-const router = require('express').Router();
-const path = require('path');
-const { CustomAPIError } = require('../errors');
+const { StatusCodes } = require("http-status-codes");
+const multer = require("multer");
+const router = require("express").Router();
+const path = require("path");
+const { CustomAPIError } = require("../errors");
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, 'uploads/images/');
+    cb(null, "/uploads/images/");
   },
   filename(req, file, cb) {
     console.log(`file`, file);
     cb(
       null,
-      `${Date.now()}_${file.originalname.split('.')[0]}${path.extname(
+      `${Date.now()}_${file.originalname.split(".")[0]}${path.extname(
         file.originalname
       )}`
     );
@@ -27,7 +27,7 @@ function checkFileType(file, cb) {
   if (extname && mimetype) {
     return cb(null, true);
   } else {
-    cb('Images only!');
+    cb("Images only!");
   }
 }
 
@@ -38,8 +38,8 @@ const upload = multer({
   },
 });
 
-router.post('/', upload.single('image'), (err, req, res, next) => {
-  if (err) throw new CustomAPIError('Unable to upload your file. Try again');
+router.post("/", upload.single("image"), (err, req, res, next) => {
+  if (err) throw new CustomAPIError("Unable to upload your file. Try again");
   try {
     next();
   } catch (err) {

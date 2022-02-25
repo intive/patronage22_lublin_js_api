@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "718129e2-0b9c-4b70-bcf0-45d1d0d6e015",
+		"_postman_id": "ae2b2814-f828-4863-97f0-a3dbf3c96a37",
 		"name": "PatronageLublinAPI",
 		"description": "### **Welcome on board!**\n\nHere you will find all API endpoints we use in our project.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -390,6 +390,27 @@
 						"description": "Register by following an example below.\n\nBefore sending a request make sure you have filled all necessary field on **Body raw (JSON).**"
 					},
 					"response": []
+				},
+				{
+					"name": "GET /api/logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"description": "All routes for authentication."
@@ -551,6 +572,11 @@
 									"key": "product_id",
 									"value": "1",
 									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Dmytro/Pictures/Planet9/Planet9_3840x2160.jpg"
 								}
 							]
 						},
@@ -715,6 +741,41 @@
 								"photos",
 								"removeAllPhotosByProductId",
 								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Upload",
+			"item": [
+				{
+					"name": "POST /api/upload",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Dmytro/Pictures/Planet9/Planet9_3840x2160.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"upload"
 							]
 						}
 					},

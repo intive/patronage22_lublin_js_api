@@ -1,3 +1,4 @@
+require('dotenv').config();
 require('express-async-errors');
 const express = require('express')
 const cors = require('cors')
@@ -41,9 +42,11 @@ app.use('/api/upload', uploadRouter)
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
 // Router for photo table
-const photosRouter = require('./routes/photosRouter.js');
 const photoTable = require('./middleware/photoTable.js');
-app.use('/api/photos', photoTable, photosRouter)
+const photosRouter = require('./routes/photosRouter.js');
+
+app.post('/api/photos', uploadRouter);
+app.use('/api/photos', photosRouter);
 
 app.use(errorHandlerMiddleware)
 app.use(notFoundMiddleware)

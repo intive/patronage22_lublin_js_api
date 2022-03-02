@@ -2,8 +2,6 @@ const photosController = require('../controllers/photosController.js');
 
 const router = require('express').Router()
 
-router.post('/', photosController.addPhoto)
-
 router.get('/', photosController.getAllPhotos)
 
 router.get('/getAllPhotosByProductId/:id', photosController.getAllPhotosByProductId)

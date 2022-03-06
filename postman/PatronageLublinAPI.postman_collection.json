@@ -18,12 +18,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/products/getAllProductsExternal",
+							"raw": "http://localhost:40286/api/products/getAllProductsExternal",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"products",
@@ -43,12 +43,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/products/getAllPublishedProductsExternal",
+							"raw": "http://localhost:40286/api/products/getAllPublishedProductsExternal",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"products",
@@ -68,12 +68,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/products/external/1",
+							"raw": "http://localhost:40286/api/products/external/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"products",
@@ -134,12 +134,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/products/addProduct",
+							"raw": "http://localhost:40286/api/products/addProduct",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"products",
@@ -166,12 +166,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/products/getAllProducts",
+							"raw": "http://localhost:40286/api/products/getAllProducts",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"products",
@@ -198,12 +198,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/products/getAllPublishedProducts",
+							"raw": "http://localhost:40286/api/products/getAllPublishedProducts",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"products",
@@ -230,12 +230,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/products/2",
+							"raw": "http://localhost:40286/api/products/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"products",
@@ -262,12 +262,12 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/products/2",
+							"raw": "http://localhost:40286/api/products/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"products",
@@ -284,12 +284,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/products/2",
+							"raw": "http://localhost:40286/api/products/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"products",
@@ -344,12 +344,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/auth/login",
+							"raw": "http://localhost:40286/api/auth/login",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"auth",
@@ -375,12 +375,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/auth/register",
+							"raw": "http://localhost:40286/api/auth/register",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"auth",
@@ -397,12 +397,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/auth/logout",
+							"raw": "http://localhost:40286/api/auth/logout",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"auth",
@@ -433,12 +433,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/categories/addCategory",
+							"raw": "http://localhost:40286/api/categories/addCategory",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"categories",
@@ -455,12 +455,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/categories",
+							"raw": "http://localhost:40286/api/categories",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"categories"
@@ -476,12 +476,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/categories/5",
+							"raw": "http://localhost:40286/api/categories/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"categories",
@@ -506,12 +506,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/categories/5",
+							"raw": "http://localhost:40286/api/categories/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"categories",
@@ -528,12 +528,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/categories/1",
+							"raw": "http://localhost:40286/api/categories/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"categories",
@@ -547,46 +547,151 @@
 			]
 		},
 		{
-			"name": "Photo",
+			"name": "Pages",
 			"item": [
 				{
-					"name": "POST /api/photos",
+					"name": "POST /api/pages/addPage",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "image",
-									"type": "file",
-									"src": []
-								},
-								{
-									"key": "product_id",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "/C:/Users/Dmytro/Pictures/Planet9/Planet9_3840x2160.jpg"
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"books\",\r\n    \"description\": \"Enjoy reading books\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/photos",
+							"raw": "http://localhost:40286/api/pages/addPage",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
+							"path": [
+								"api",
+								"pages",
+								"addPage"
+							]
+						},
+						"description": "This route is for adding new category.\n\nTo add a new category:\n\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Insert new category in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String  \n    }\n*   Send a request."
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/pages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:40286/api/pages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "40286",
+							"path": [
+								"api",
+								"pages"
+							]
+						},
+						"description": "Get all categories."
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/pages/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:40286/api/pages/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "40286",
+							"path": [
+								"api",
+								"pages",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /api/pages/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Books\",\r\n    \"description\": \"Enjoy reading books\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:40286/api/pages/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "40286",
+							"path": [
+								"api",
+								"pages",
+								"5"
+							]
+						},
+						"description": "Update a single category by its id\n\nTo update a category:\n\n*   Select a category id you want to change\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Select a field you want to update and write in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    }\n*   Send a request"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE  /api/pages/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:40286/api/pages/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "40286",
+							"path": [
+								"api",
+								"pages",
+								"1"
+							]
+						},
+						"description": "Delete a category by its id"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Photo",
+			"item": [
+				{
+					"name": "POST /api/photos - only works when image was successfully uploaded to server",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:40286/api/photos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "40286",
 							"path": [
 								"api",
 								"photos"
@@ -601,12 +706,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/photos",
+							"raw": "http://localhost:40286/api/photos",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"photos"
@@ -621,12 +726,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/photos/getAllPhotosByProductId/1",
+							"raw": "http://localhost:40286/api/photos/getAllPhotosByProductId/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"photos",
@@ -643,12 +748,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/photos/getMainPhotoByProductId/3",
+							"raw": "http://localhost:40286/api/photos/getMainPhotoByProductId/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"photos",
@@ -665,12 +770,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/photos/getPhotoById/4",
+							"raw": "http://localhost:40286/api/photos/getPhotoById/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"photos",
@@ -687,12 +792,12 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/photos/updatePhotoById/2",
+							"raw": "http://localhost:40286/api/photos/updatePhotoById/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"photos",
@@ -709,12 +814,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/photos/1",
+							"raw": "http://localhost:40286/api/photos/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"photos",
@@ -730,12 +835,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/photos/removeAllPhotosByProductId/1",
+							"raw": "http://localhost:40286/api/photos/removeAllPhotosByProductId/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"photos",
@@ -762,20 +867,49 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/Dmytro/Pictures/Planet9/Planet9_3840x2160.jpg"
+									"src": []
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/upload",
+							"raw": "http://localhost:40286/api/upload",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "40286",
 							"path": [
 								"api",
 								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /uploadPhotos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:40286/uploadPhotos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "40286",
+							"path": [
+								"uploadPhotos"
 							]
 						}
 					},

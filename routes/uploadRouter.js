@@ -1,11 +1,10 @@
 const multer = require('multer');
 const router = require('express').Router();
 const path = require('path');
-const photosController = require('../controllers/photosController.js');
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, 'uploads/images/');
+    (req.originalUrl === '/uploadPhotos') ? cb(null, './uploads/images') : cb(null, './uploads');
   },
   filename(req, file, cb) {
     cb(
@@ -40,6 +39,5 @@ router.route('/').post(upload.single('image'), (req, res) => {
   res.send(`${req.file.path}`);
 });
 
-router.route('/api/photos').all(upload.single('image')).post(photosController.addPhoto);
-
 module.exports = router;
+module.exports.upload = upload;

@@ -43,8 +43,9 @@ app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
 // Router for photo table
 const photosRouter = require('./routes/photosRouter.js');
-app.post('/api/photos', uploadRouter);
+const uploadPhotosRouter = require('./routes/uploadPhotosRouter.js');
 app.use('/api/photos', photosRouter);
+app.use('/uploadPhotos', uploadPhotosRouter);
 
 app.use(errorHandlerMiddleware)
 app.use(notFoundMiddleware)

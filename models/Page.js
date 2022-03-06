@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
       description: {
         type: DataTypes.TEXT,
       },
+      slug: {
+        type: DataTypes.TEXT,
+      },
     },
     {
       timestamps: true,

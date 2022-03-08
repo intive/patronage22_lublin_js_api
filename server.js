@@ -45,6 +45,11 @@ const photosRouter = require('./routes/photosRouter.js');
 const photoTable = require('./middleware/photoTable.js');
 app.use('/api/photos', photoTable, photosRouter)
 
+
+
+const pagesRouter = require('./routes/pagesRouter.js');
+app.use('/api/pages', authMiddleware, pagesRouter);
+
 app.use(errorHandlerMiddleware)
 app.use(notFoundMiddleware)
 

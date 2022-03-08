@@ -6,7 +6,7 @@ const addPhoto = async (req, res) => {
   let productId = req.body.product_id;
   let photoDetails = {
     product_id: productId,
-    url: `${process.env.PHOTO_URL}${req.file.path}`,
+    url: `${req.file.path}`,
     active: true,
     main_photo: false,
   };

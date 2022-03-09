@@ -6,6 +6,7 @@ const path = require('path')
 
 const app = express()
 
+const authMiddleware = require('./middleware/auth')
 const notFoundMiddleware = require('./middleware/notFound');
 const errorHandlerMiddleware = require('./middleware/errorHandler');
 
@@ -27,25 +28,24 @@ app.use('/api/products', externalProductRouter)
 
 //Router for categories
 const categoryRouter = require('./routes/categoryRouter.js')
-app.use('/api/categories', categoryRouter)
+app.use('/api/categories', authMiddleware, categoryRouter)
 
 // Router for products, auth
 const router = require('./routes/productRouter.js')
 const authRouter = require('./routes/authRouter.js')
-const authMiddleware = require('./middleware/auth')
 app.use('/api/products', authMiddleware, router)
 app.use('/api/auth', authRouter)
 
 //Router for uploading images
 const uploadRouter = require('./routes/uploadRouter.js')
-app.use('/api/upload', uploadRouter)
+app.use('/api/upload', authMiddleware, uploadRouter)
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
 // Router for photo table
 const photosRouter = require('./routes/photosRouter.js');
 const uploadPhotosRouter = require('./routes/uploadPhotosRouter.js');
-app.use('/api/photos', photosRouter);
-app.use('/uploadPhotos', uploadPhotosRouter);
+app.use('/api/photos', authMiddleware, photosRouter);
+app.use('/uploadPhotos', authMiddleware, uploadPhotosRouter);
 
 
 

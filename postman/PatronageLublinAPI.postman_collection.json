@@ -681,26 +681,6 @@
 			"name": "Photo",
 			"item": [
 				{
-					"name": "POST /api/photos - only works when image was successfully uploaded to server",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/photos",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"photos"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "GET /api/photos",
 					"request": {
 						"method": "GET",
@@ -915,7 +895,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "All upload routes. You need to be authorized to access.\n\nWhen `/api/upload` used please provide `form-data` with `image` key set to `file` and value.\n\nIf requirements are meet selected file will be uploaded to server in`/uploads` directory, but not saved to database.\n\nTo upload image, and also save it in to database please use `/uploadPhotos`. Please provide `form-data` with `image` key set to `file`, and `product_id` key as number.\n\n`product_id` must match `id` of a product already saved in database.\n\nBoth values are required to successfully upload and save.\n\nWhen all requirements are meet, file will be uploaded to `/uploads/images` and save in database as following example:\n\n``` javascript\n{\n        \"id\": 1,\n        \"product_id\": 1,\n        \"url\": \"uploads/images/1646732177419_sample.png\",\n        \"active\": true,\n        \"main_photo\": false,\n        \"createdAt\": \"2022-03-08T09:36:17.000Z\",\n        \"updatedAt\": \"2022-03-08T09:36:17.000Z\"\n}\n\n```"
 		}
 	]
 }

@@ -1,4 +1,5 @@
 const photosController = require('../controllers/photosController.js');
+const { ensureFileIsPresent } = require('./uploadPhotosRouter.js');
 
 const router = require('express').Router()
 

@@ -4,14 +4,14 @@ const path = require('path');
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    (req.originalUrl === '/uploadPhotos') ? cb(null, './uploads/images') : cb(null, './uploads');
+    req.originalUrl === '/uploadPhotos'
+      ? cb(null, './uploads/images')
+      : cb(null, './uploads');
   },
   filename(req, file, cb) {
     cb(
       null,
-      `${Date.now()}_${file.originalname.split('.')[0]}${path.extname(
-        file.originalname
-      )}`
+      `${Date.now()}_${file.originalname.replace(/\s+/g, '')}`
     );
   },
 });

@@ -27,11 +27,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  Photo.associate = (models) => {
-    Product.belongsTo(models.Product, {
-      foreignKey: 'product_id',
-    });
-  };
+  // Photo.associate = (models) => {
+  //   Product.belongsTo(models.Product, {
+  //     foreignKey: 'product_id',
+  //   });
+  // };
 
   return Photo;
 };

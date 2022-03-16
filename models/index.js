@@ -33,4 +33,14 @@ db.pages = require('./Page')(sequelize, DataTypes)
 db.sequelize.sync({ force: false })
 .then(() => {console.log('re-sync done!')})
 
+db.products.hasMany(db.photos, {
+  foreignKey: 'product_id',
+  as: 'photos'
+})
+
+db.photos.belongsTo(db.products, {
+  foreignKey: 'product_id',
+  as: 'products'
+})
+
 module.exports = db

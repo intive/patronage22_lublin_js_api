@@ -1,4 +1,5 @@
 const db = require('../models');
+const { unlink } = require('fs');
 
 const Photo = db.photos;
 const Product = db.products;
@@ -12,9 +13,9 @@ const addPhoto = async (req, res) => {
   const checkProductExist = await Product.findOne({
     where: { id: productId },
   });
-  
+
   if (!checkProductExist) {
-    res.status(400).json({ msg: 'Unable to find provided product_id' });
+    return res.status(400).json({ msg: 'Unable to find provided product_id' });
   } else {
     let photoDetails = {
       product_id: productId,
@@ -47,14 +48,24 @@ const updatePhotoById = async (req, res) => {
 
 const deletePhotoById = async (req, res) => {
   const id = req.params.id;
+  let { url } = await Photo.findOne({ where: { id: id }});
+  unlink(`./${url}`, (err) => {
+    if (err) throw err;
+  });
   await Photo.destroy({ where: { id: id } });
-  res.status(200).send('Photo is deleted');
+  res.status(200).json({ msg: `Photo & record deleted`})
 };
 
 const removeAllPhotosByProductId = async (req, res) => {
   const id = req.params.id;
+  let allPhotosByProductId = await Photo.findAll({ where: { product_id: id }});
+  for (const file of allPhotosByProductId) {
+    unlink(`./${file.url}`, (err) => {
+      if (err) throw err
+    });
+  }
   await Photo.destroy({ where: { product_id: id } });
-  res.status(200).send('Photos are deleted');
+  res.status(200).json({ msg: `Photos & record deleted`})
 };
 
 const getAllPhotosByProductId = async (req, res) => {

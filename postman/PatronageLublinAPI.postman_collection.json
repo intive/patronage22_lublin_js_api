@@ -274,7 +274,7 @@
 								"2"
 							]
 						},
-						"description": "Update a single product by its id\n\nTo update a product:\n\n*   You must be authorized.\n*   Select a product id you want to change\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Select a field you want to update and write in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    \"published\": Boolen(initially false)  \n    }\n*   Send a request"
+						"description": "Update a single product by its id\n\nTo update a product:\n\n*   You must be authorized.\n*   Select a product id you want to change\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Select a field you want to update and write in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    \"published\": Boolean(initially false)  \n    }\n*   Send a request"
 					},
 					"response": []
 				},
@@ -794,7 +794,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:40286/api/photos/1",
+							"raw": "http://localhost:40286/api/photos/deletePhotoById/1",
 							"protocol": "http",
 							"host": [
 								"localhost"

@@ -146,7 +146,7 @@
 								"addProduct"
 							]
 						},
-						"description": "This route is for adding new product.\n\nTo add a new product:\n\n*   You must be authorized.\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Insert new product in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    \"published\": Boolen(initially false)  \n    }\n*   Send a request."
+						"description": "This route is for adding new product.\n\nTo add a new product:\n\n*   You must be authorized.\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Insert new product in the following syntax:  \n    {  \n    \"title\": String,  \n    \"price\": Number,  \n    \"description\": String,  \n    \"published\": Boolean(initially false)  \n    }\n*   Send a request."
 					},
 					"response": []
 				},

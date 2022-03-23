@@ -22,21 +22,23 @@ app.use(express.json())
 
 app.use(express.urlencoded({ extended: true }))
 
-//Routes for frontend without Authorization
+// Routes for frontend without Authorization
 const externalProductRouter = require('./routes/productExternalRouter.js')
 app.use('/api/products', externalProductRouter)
 
-//Router for categories
+// Router for products
+const productRouter = require('./routes/productRouter.js')
+app.use('/api/products', authMiddleware, productRouter);
+
+// Router for categories
 const categoryRouter = require('./routes/categoryRouter.js')
 app.use('/api/categories', authMiddleware, categoryRouter)
 
-// Router for products, auth
-const router = require('./routes/productRouter.js')
+// Router for auth
 const authRouter = require('./routes/authRouter.js')
-app.use('/api/products', authMiddleware, router)
 app.use('/api/auth', authRouter)
 
-//Router for uploading images
+// Router for uploading images
 const uploadRouter = require('./routes/uploadRouter.js')
 app.use('/api/upload', authMiddleware, uploadRouter)
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
@@ -47,8 +49,7 @@ const uploadPhotosRouter = require('./routes/uploadPhotosRouter.js');
 app.use('/api/photos', authMiddleware, photosRouter);
 app.use('/uploadPhotos', authMiddleware, uploadPhotosRouter);
 
-
-
+// Router for pages
 const pagesRouter = require('./routes/pagesRouter.js');
 app.use('/api/pages', authMiddleware, pagesRouter);
 

@@ -2,10 +2,17 @@ const productController = require('../controllers/productController.js')
 
 const router = require('express').Router()
 
-router.get('/getAllProductsExternal', productController.getAllProducts)
+router.use((req, res, next) => {
+  if(req.headers['authorization']) {
+    return next('router')
+  }
+  next()
+})
 
-router.get('/getAllPublishedProductsExternal', productController.getPublishedProducts)
+router.get('/getAllProductsExternal', productController.getAllProductsExternal)
 
-router.get('/external/:id', productController.getOneProduct)
+router.get('/getAllPublishedProductsExternal', productController.getPublishedProductsExternal)
+
+router.get('/external/:id', productController.getOneProductExternal)
 
 module.exports = router

@@ -723,7 +723,7 @@
 					"response": []
 				},
 				{
-					"name": "GET /api/photos/getMainPhotoByProductId",
+					"name": "GET /api/photos/getMainPhotoByProductId/:id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -745,7 +745,7 @@
 					"response": []
 				},
 				{
-					"name": "GET /api/photos/getPhotoById",
+					"name": "GET /api/photos/getPhotoById/:id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -789,12 +789,12 @@
 					"response": []
 				},
 				{
-					"name": "DELETE /api/photos/:id",
+					"name": "DELETE /api/photos/deletePhotoById/:id",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:40286/api/photos/1",
+							"raw": "http://localhost:40286/api/photos/deletePhotoById/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -803,6 +803,7 @@
 							"path": [
 								"api",
 								"photos",
+								"deletePhotoById",
 								"1"
 							]
 						}

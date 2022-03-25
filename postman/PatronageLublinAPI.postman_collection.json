@@ -723,7 +723,7 @@
 					"response": []
 				},
 				{
-					"name": "GET /api/photos/getMainPhotoByProductId",
+					"name": "GET /api/photos/getMainPhotoByProductId/:id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -745,7 +745,7 @@
 					"response": []
 				},
 				{
-					"name": "GET /api/photos/getPhotoById",
+					"name": "GET /api/photos/getPhotoById/:id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -803,6 +803,7 @@
 							"path": [
 								"api",
 								"photos",
+								"deletePhotoById",
 								"1"
 							]
 						}

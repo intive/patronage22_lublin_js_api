@@ -20,7 +20,6 @@ const addProduct = async (req, res) => {
     console.log('Error' + err);
   });
   res.status(200).send(product);
-  console.log(product);
 };
 
 const getAllProducts = async (req, res) => {
@@ -40,14 +39,15 @@ const getOneProduct = async (req, res) => {
 const updateProduct = async (req, res) => {
   const status = req.body.status ? 'Available' : 'Unavailable';
   const id = req.params.id;
+  const product = await Product.findOne({ where: { id: id } });
+  if (!product) {
+    throw new CustomAPIError(`Product id: ${id} not found...`, 404);
+  }
   let newDetails = {
     ...req.body,
     status,
   };
-  const product = await Product.update(newDetails, { where: { id: id } });
-  if (!product) {
-    throw new CustomAPIError(`Product id: ${id} not found...`, 404);
-  }
+  await Product.update(newDetails, { where: { id: id } });
   res.status(200).send(product);
 };
 
@@ -65,6 +65,9 @@ const getPublishedProducts = async (req, res) => {
   const products = await Product.findAll({
     where: { published: true },
   });
+  if (!products) {
+    throw new CustomAPIError(`No published products`, 404);
+  }
   res.status(200).send(products);
 };
 

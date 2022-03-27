@@ -576,7 +576,7 @@
 								"addPage"
 							]
 						},
-						"description": "This route is for adding new category.\n\nTo add a new category:\n\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Insert new category in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String  \n    }\n*   Send a request."
+						"description": "This route is for adding new page.\n\nTo add a new page:\n\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Insert new page in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String  \n    }\n*   Send a request."
 					},
 					"response": []
 				},
@@ -597,7 +597,7 @@
 								"pages"
 							]
 						},
-						"description": "Get all categories."
+						"description": "Get all pages."
 					},
 					"response": []
 				},
@@ -649,7 +649,7 @@
 								"5"
 							]
 						},
-						"description": "Update a single category by its id\n\nTo update a category:\n\n*   Select a category id you want to change\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Select a field you want to update and write in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    }\n*   Send a request"
+						"description": "Update a single page by its id\n\nTo update a page:\n\n*   Select a page id you want to change\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Select a field you want to update and write in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    }\n*   Send a request"
 					},
 					"response": []
 				},
@@ -671,7 +671,7 @@
 								"1"
 							]
 						},
-						"description": "Delete a category by its id"
+						"description": "Delete a page by its id"
 					},
 					"response": []
 				}

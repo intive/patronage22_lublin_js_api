@@ -7,10 +7,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       description: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
       },
       slug: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
       },
     },
     {

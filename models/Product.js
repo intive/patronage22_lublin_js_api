@@ -1,3 +1,5 @@
+const CustomAPIError = require('../errors/customError');
+
 module.exports = (sequelize, DataTypes) => {
   const Product = sequelize.define(
     'Product',
@@ -12,6 +14,13 @@ module.exports = (sequelize, DataTypes) => {
       },
       status: {
         type: DataTypes.STRING,
+        validate: {
+          isIn: {
+            args: [['Available', 'Unavailable']],
+            msg: 'Status can only be Available or Unavailable'
+          }
+        }
+
       },
       quantity: {
         type: DataTypes.INTEGER,
@@ -33,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       timestamps: true,
-    }
+    },
   );
 
   // Product.associate = (models) => {

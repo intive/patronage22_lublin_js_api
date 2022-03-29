@@ -12,7 +12,7 @@ const addProduct = async (req, res) => {
     title: req.body.title,
     price: req.body.price,
     quantity: req.body.quantity,
-    status: req.body.status ? 'Available' : 'Unavailable',
+    status: req.body.status,
     description: req.body.description,
     published: req.body.published ? req.body.published : false,
   };
@@ -38,13 +38,8 @@ const getOneProduct = async (req, res) => {
 };
 
 const updateProduct = async (req, res) => {
-  const status = req.body.status ? 'Available' : 'Unavailable';
   const id = req.params.id;
-  let newDetails = {
-    ...req.body,
-    status,
-  };
-  const product = await Product.update(newDetails, { where: { id: id } });
+  const product = await Product.update(req.body, { where: { id: id } });
   if (!product) {
     throw new CustomAPIError(`Product id: ${id} not found...`, 404);
   }

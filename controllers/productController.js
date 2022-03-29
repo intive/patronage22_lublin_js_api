@@ -1,3 +1,4 @@
+const CustomAPIError = require('../errors/customError');
 const db = require('../models');
 
 const Product = db.products;
@@ -5,19 +6,21 @@ const Photo = db.photos;
 
 const addProduct = async (req, res) => {
   if (Object.keys(req.body).length === 0) {
-    return res.status(400).json({ msg: `Please provide details for new product` });
+    throw new CustomAPIError('Please provide details for new product', 400);
   }
-    let info = {
-      title: req.body.title,
-      price: req.body.price,
-      description: req.body.description,
-      published: req.body.published ? req.body.published : false,
-    };
-    let product = await Product.create(info).catch((err) => {
-      console.log('Error' + err);
-    });
-    res.status(200).send(product);
-    console.log(product);
+  let info = {
+    title: req.body.title,
+    price: req.body.price,
+    quantity: req.body.quantity,
+    status: req.body.status ? 'Available' : 'Unavailable',
+    description: req.body.description,
+    published: req.body.published ? req.body.published : false,
+  };
+  let product = await Product.create(info).catch((err) => {
+    console.log('Error' + err);
+  });
+  res.status(200).send(product);
+  console.log(product);
 };
 
 const getAllProducts = async (req, res) => {
@@ -29,16 +32,21 @@ const getOneProduct = async (req, res) => {
   const id = req.params.id;
   const product = await Product.findOne({ where: { id: id } });
   if (!product) {
-    return res.status(404).json({ msg: `Product id: ${id} not found...` });
+    throw new CustomAPIError(`Product id: ${id} not found...`, 404);
   }
   res.status(200).send(product);
 };
 
 const updateProduct = async (req, res) => {
+  const status = req.body.status ? 'Available' : 'Unavailable';
   const id = req.params.id;
-  const product = await Product.update(req.body, { where: { id: id } });
+  let newDetails = {
+    ...req.body,
+    status,
+  };
+  const product = await Product.update(newDetails, { where: { id: id } });
   if (!product) {
-    return res.status(404).json({ msg: `Product id: ${id} not found...` });
+    throw new CustomAPIError(`Product id: ${id} not found...`, 404);
   }
   res.status(200).send(product);
 };
@@ -47,7 +55,7 @@ const deleteProduct = async (req, res) => {
   const id = req.params.id;
   const deletedItem = await Product.findOne({ where: { id: id } });
   if (!deletedItem) {
-    return res.status(404).json({ msg: `Product id: ${id} not found...` });
+    throw new CustomAPIError(`Product id: ${id} not found...`, 404);
   }
   await Product.destroy({ where: { id: id } });
   res.status(200).send('Product is deleted');
@@ -74,7 +82,7 @@ const getOneProductExternal = async (req, res) => {
     include: { model: Photo, as: 'photos' },
   });
   if (!product) {
-    return res.status(404).json({ msg: `Product id: ${id} not found...` });
+    throw new CustomAPIError(`Product id: ${id} not found...`, 404);
   }
   res.status(200).send(product);
 };
@@ -88,13 +96,13 @@ const getPublishedProductsExternal = async (req, res) => {
 };
 
 module.exports = {
-    addProduct,
-    getAllProducts,
-    getOneProduct,
-    updateProduct,
-    deleteProduct,
-    getPublishedProducts,
-    getAllProductsExternal,
-    getOneProductExternal,
-    getPublishedProductsExternal,
+  addProduct,
+  getAllProducts,
+  getOneProduct,
+  updateProduct,
+  deleteProduct,
+  getPublishedProducts,
+  getAllProductsExternal,
+  getOneProductExternal,
+  getPublishedProductsExternal,
 };

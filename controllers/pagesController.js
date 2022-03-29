@@ -13,6 +13,7 @@ const addPage = async (req, res) => {
     title: req.body.title,
     description: req.body.description,
     slug: req.body.title
+      .trim()
       .toLowerCase()
       .replace(/[^a-z0-9 -]/g, '') // remove invalid chars
       .replace(/\s+/g, '-') // collapse whitespace and replace by -

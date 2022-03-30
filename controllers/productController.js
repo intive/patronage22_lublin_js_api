@@ -17,10 +17,12 @@ const addProduct = async (req, res) => {
     published: req.body.published ? req.body.published : false,
   };
   let product = await Product.create(info).catch((err) => {
-    console.log('Error' + err);
+    if (err.name === 'SequelizeValidationError') {
+      const errors = err.errors.map((err) => err.message);
+      res.status(400).json({ errors });
+    }
   });
   res.status(200).send(product);
-  console.log(product);
 };
 
 const getAllProducts = async (req, res) => {

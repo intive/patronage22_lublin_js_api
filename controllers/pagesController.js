@@ -21,7 +21,10 @@ const addPage = async (req, res) => {
   };
 
   let page = await Page.create(info).catch((err) => {
-    console.log('Error' + err);
+    if (err.name === 'SequelizeValidationError') {
+      const errors = err.errors.map((err) => err.message);
+      res.status(400).json({ errors });
+    }
   });
   res.status(200).send(page);
 };

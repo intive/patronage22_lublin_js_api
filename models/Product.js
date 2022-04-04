@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Product = sequelize.define(
-    'Product',
+    "Product",
     {
       title: {
         type: DataTypes.STRING,
@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           is: {
             args: /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ0-9]+(\s+[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ0-9.!]+(?!@#$%^&*()_+{}|":>?><))*$/,
-            msg: 'Product title invalid.',
+            msg: "Product title invalid.",
           },
           len: {
             args: [3, 280],
@@ -25,11 +25,11 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           max: {
             args: 1000000,
-            msg: 'Maxiumum price is 1000000.',
+            msg: "Maxiumum price is 1000000.",
           },
           min: {
             args: 1,
-            msg: 'Minimum price is 1.',
+            msg: "Minimum price is 1.",
           },
           notNull: {
             msg: `Product price cannot be empty.`,
@@ -41,8 +41,8 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           isIn: {
-            args: [['Available', 'Unavailable']],
-            msg: 'Product status can only be Available or Unavailable.',
+            args: [["Available", "Unavailable"]],
+            msg: "Product status can only be Available or Unavailable.",
           },
           notNull: {
             msg: `Product status cannot be empty.`,
@@ -55,11 +55,11 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           max: {
             args: 100,
-            msg: 'Maxiumum quantity is 100.',
+            msg: "Maxiumum quantity is 100.",
           },
           min: {
             args: 1,
-            msg: 'Minimum quantity is 1.',
+            msg: "Minimum quantity is 1.",
           },
           notNull: {
             msg: `Product quantity cannot be empty.`,
@@ -79,16 +79,20 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      category: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       published: {
         type: DataTypes.BOOLEAN,
       },
       createdAt: {
         type: DataTypes.DATE,
-        field: 'created_at',
+        field: "created_at",
       },
       updatedAt: {
         type: DataTypes.DATE,
-        field: 'updated_at',
+        field: "updated_at",
       },
     },
     {

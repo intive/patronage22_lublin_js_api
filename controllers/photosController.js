@@ -1,5 +1,8 @@
 const db = require('../models');
-const { unlink } = require('fs');
+const fs = require('fs');
+const { unlink, access, constants, fstat } = require('fs');
+const { CustomAPIError } = require('../errors');
+const { all } = require('express/lib/application');
 
 const Photo = db.photos;
 const Product = db.products;
@@ -7,8 +10,8 @@ const Product = db.products;
 const addPhoto = async (req, res) => {
   let productId = req.body.product_id;
   if (!productId) {
-    return res.status(400).json({ msg: 'Please provide product_id' })
-  };
+    return res.status(400).json({ msg: 'Please provide product_id' });
+  }
 
   const checkProductExist = await Product.findOne({
     where: { id: productId },
@@ -48,24 +51,74 @@ const updatePhotoById = async (req, res) => {
 
 const deletePhotoById = async (req, res) => {
   const id = req.params.id;
-  let { url } = await Photo.findOne({ where: { id: id }});
-  unlink(`./${url}`, (err) => {
-    if (err) throw err;
+  let photoToDelete = await Photo.findOne({ where: { id: id } });
+  if (!photoToDelete) {
+    throw new CustomAPIError(`Photo id: ${id} - not found`, 404);
+  }
+  function deleteFile(filepath, callback) {
+    try {
+      fs.access(filepath, (error) => {
+        if (error) {
+          return res.status(404).json({ msg: `File not found in directory.` });
+        }
+        fs.unlink(filepath, async (err) => {
+          if (err) {
+            callback(err);
+            return;
+          }
+          await Photo.destroy({ where: { id: id } });
+          return res.status(200).json({ msg: 'File deleted' });
+        });
+      });
+    } catch (error) {
+      throw new CustomAPIError(`${error.message}`, `${error.status}`);
+    }
+  }
+  deleteFile(`./${photoToDelete.url}`, (err) => {
+    if (err) {
+      throw new CustomAPIError(`Photo id: ${id} not found`, 404);
+    }
   });
-  await Photo.destroy({ where: { id: id } });
-  res.status(200).json({ msg: `Photo & record deleted`})
 };
 
 const removeAllPhotosByProductId = async (req, res) => {
   const id = req.params.id;
-  let allPhotosByProductId = await Photo.findAll({ where: { product_id: id }});
-  for (const file of allPhotosByProductId) {
-    unlink(`./${file.url}`, (err) => {
-      if (err) throw err
-    });
+  let allPhotosByProductId = await Photo.findAll({ where: { product_id: id } });
+
+  if (allPhotosByProductId.length === 0) {
+    throw new CustomAPIError('No photos were found', 404);
   }
-  await Photo.destroy({ where: { product_id: id } });
-  res.status(200).json({ msg: `Photos & record deleted`})
+
+  let allUrls = [];
+  for (let { url } of allPhotosByProductId) {
+    allUrls.push(url);
+  }
+  function dataDeleter() {
+    return Promise.all(
+      allUrls.map(
+        (url) =>
+          new Promise((res, rej) => {
+            try {
+              fs.unlink(`./${url}`, (err) => {
+                if (err) throw new CustomAPIError(`${err.message}`, 400);
+                console.log(`${url} was deleted`);
+              });
+              Photo.destroy({ where: { product_id: id } });
+              res();
+            } catch (err) {
+              console.error(err);
+              rej(err);
+            }
+          })
+      )
+    )
+      .then(() => {
+        allUrls.length = 0;
+        res.status(200).json({ msg: 'Files removed' });
+      })
+      .catch((err) => new CustomAPIError(`${err.message}`, 400));
+  }
+  dataDeleter(allUrls);
 };
 
 const getAllPhotosByProductId = async (req, res) => {

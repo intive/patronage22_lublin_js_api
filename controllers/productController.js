@@ -1,5 +1,5 @@
-const CustomAPIError = require("../errors/customError");
-const db = require("../models");
+const CustomAPIError = require('../errors/customError');
+const db = require('../models');
 
 const Product = db.products;
 const Photo = db.photos;
@@ -7,7 +7,7 @@ const Category = db.categories;
 
 const addProduct = async (req, res) => {
   if (Object.keys(req.body).length === 0) {
-    throw new CustomAPIError("Please provide details for new product", 400);
+    throw new CustomAPIError('Please provide details for new product', 400);
   }
   let info = {
     title: req.body.title,
@@ -15,11 +15,11 @@ const addProduct = async (req, res) => {
     quantity: req.body.quantity,
     status: req.body.status,
     description: req.body.description,
-    category: req.body.category,
+    categoryId: req.body.categoryId,
     published: req.body.published ? req.body.published : false,
   };
   let product = await Product.create(info).catch((err) => {
-    if (err.name === "SequelizeValidationError") {
+    if (err.name === 'SequelizeValidationError') {
       const errors = err.errors.map((err) => err.message);
       res.status(400).json({ errors });
     }
@@ -58,7 +58,7 @@ const deleteProduct = async (req, res) => {
     throw new CustomAPIError(`Product id: ${id} not found...`, 404);
   }
   await Product.destroy({ where: { id: id } });
-  res.status(200).send("Product is deleted");
+  res.status(200).send('Product is deleted');
 };
 
 const getPublishedProducts = async (req, res) => {
@@ -70,7 +70,7 @@ const getPublishedProducts = async (req, res) => {
 
 const getAllProductsExternal = async (req, res) => {
   const products = await Product.findAll({
-    include: { model: Photo, as: "photos", where: { main_photo: 1 } },
+    include: { model: Photo, as: 'photos', where: { main_photo: 1 } },
   });
   res.status(200).send(products);
 };
@@ -79,7 +79,7 @@ const getOneProductExternal = async (req, res) => {
   const id = req.params.id;
   const product = await Product.findOne({
     where: { id: id },
-    include: { model: Photo, as: "photos" },
+    include: { model: Photo, as: 'photos' },
   });
   if (!product) {
     throw new CustomAPIError(`Product id: ${id} not found...`, 404);
@@ -90,7 +90,7 @@ const getOneProductExternal = async (req, res) => {
 const getPublishedProductsExternal = async (req, res) => {
   const products = await Product.findAll({
     where: { published: true },
-    include: { model: Photo, as: "photos", where: { main_photo: 1 } },
+    include: { model: Photo, as: 'photos', where: { main_photo: 1 } },
   });
   res.status(200).send(products);
 };
@@ -99,7 +99,7 @@ const getProductsByCategoryId = async (req, res) => {
   const id = req.params.id;
   const category = await Category.findOne({ where: { id: id } });
   const products = await Product.findAll({
-    where: { category: category.title },
+    where: { categoryId: category.id },
   });
   if (!category) {
     throw new CustomAPIError(`Category id: ${id} not found...`, 404);

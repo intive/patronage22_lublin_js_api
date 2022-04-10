@@ -25,6 +25,7 @@ db.sequelize = sequelize
 
 db.products = require('./Product')(sequelize, DataTypes)
 db.users = require('./User')(sequelize, DataTypes)
+db.usersExternal = require('./UserExternal')(sequelize, DataTypes)
 db.categories = require('./Category')(sequelize, DataTypes)
 db.photos = require('./Photo')(sequelize, DataTypes)
 db.pages = require('./Page')(sequelize, DataTypes)

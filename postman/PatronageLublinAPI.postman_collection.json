@@ -247,6 +247,39 @@
 					"response": []
 				},
 				{
+					"name": "GET /api/products/getProductsByCategoryId/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:40286/api/products/getProductsByCategoryId/:id/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "40286",
+							"path": [
+								"api",
+								"products",
+								"getProductsByCategoryId",
+								"3"
+							]
+						},
+						"description": "Get products by category id"
+					},
+					"response": []
+				},
+				{
 					"name": "PUT /api/products/:id",
 					"request": {
 						"auth": {

@@ -3,6 +3,7 @@ const db = require('../models');
 
 const Product = db.products;
 const Photo = db.photos;
+const Category = db.categories;
 
 const addProduct = async (req, res) => {
   if (Object.keys(req.body).length === 0) {
@@ -14,6 +15,7 @@ const addProduct = async (req, res) => {
     quantity: req.body.quantity,
     status: req.body.status,
     description: req.body.description,
+    categoryId: req.body.categoryId,
     published: req.body.published ? req.body.published : false,
   };
   let product = await Product.create(info).catch((err) => {
@@ -23,6 +25,7 @@ const addProduct = async (req, res) => {
     }
   });
   res.status(200).send(product);
+  console.log(product);
 };
 
 const getAllProducts = async (req, res) => {
@@ -92,6 +95,19 @@ const getPublishedProductsExternal = async (req, res) => {
   res.status(200).send(products);
 };
 
+const getProductsByCategoryId = async (req, res) => {
+  const id = req.params.id;
+  const category = await Category.findOne({ where: { id: id } });
+  const products = await Product.findAll({
+    where: { categoryId: category.id },
+  });
+  if (!category) {
+    throw new CustomAPIError(`Category id: ${id} not found...`, 404);
+  }
+  console.log(category);
+  res.status(200).send(products);
+};
+
 module.exports = {
   addProduct,
   getAllProducts,
@@ -102,4 +118,5 @@ module.exports = {
   getAllProductsExternal,
   getOneProductExternal,
   getPublishedProductsExternal,
+  getProductsByCategoryId,
 };

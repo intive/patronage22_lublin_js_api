@@ -79,6 +79,10 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      categoryId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
       published: {
         type: DataTypes.BOOLEAN,
       },

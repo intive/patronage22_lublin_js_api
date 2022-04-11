@@ -29,8 +29,11 @@ const addProduct = async (req, res) => {
 };
 
 const getAllProducts = async (req, res) => {
-  const products = await Product.findAll({});
-  res.status(200).send(products);
+  const pageSize = 9
+  const page = Number(req.query.pageNumber) || 1
+
+  const products = await Product.findAll({ limit: pageSize });
+  res.status(200).send({ products, page });
 };
 
 const getOneProduct = async (req, res) => {
@@ -69,10 +72,15 @@ const getPublishedProducts = async (req, res) => {
 };
 
 const getAllProductsExternal = async (req, res) => {
+  const pageSize = 9
+  const page = Number(req.query.pageNumber) || 1
+
   const products = await Product.findAll({
+    limit: pageSize,
     include: { model: Photo, as: 'photos', where: { main_photo: 1 } },
   });
-  res.status(200).send(products);
+
+  res.status(200).send({ products, page });
 };
 
 const getOneProductExternal = async (req, res) => {

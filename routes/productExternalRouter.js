@@ -9,7 +9,7 @@ router.use((req, res, next) => {
   next()
 })
 
-router.get('/getAllProductsExternal', productController.getAllProductsExternal)
+router.get('/', productController.getAllProductsExternal)
 
 router.get('/getAllPublishedProductsExternal', productController.getPublishedProductsExternal)
 

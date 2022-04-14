@@ -70,7 +70,7 @@ const getPublishedProducts = async (req, res) => {
 
 const getAllProductsExternal = async (req, res) => {
   const products = await Product.findAll({
-    include: { model: Photo, as: 'photos', where: { main_photo: 1 } },
+    include: { model: Photo, as: 'photos' },
   });
   res.status(200).send(products);
 };

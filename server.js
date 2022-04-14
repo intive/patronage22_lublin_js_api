@@ -24,7 +24,12 @@ app.use(express.urlencoded({ extended: true }))
 
 // Routes for frontend without Authorization
 const externalProductRouter = require('./routes/productExternalRouter.js')
+const externalUsersRouter = require('./routes/usersExternalRouter.js')
+const externalCategoriesRouter = require('./routes/categoryExternalRouter.js');
 app.use('/api/products', externalProductRouter)
+app.use('/api/categories', externalCategoriesRouter)
+app.use('/api/usersExternal', externalUsersRouter)
+
 
 // Router for products
 const productRouter = require('./routes/productRouter.js')

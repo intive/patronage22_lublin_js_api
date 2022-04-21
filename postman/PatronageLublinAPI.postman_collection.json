@@ -293,7 +293,7 @@
           "response": []
         },
         {
-          "name": "GET /api/pages/:slug",
+          "name": "GET /api/pages/slug/:slug",
           "request": {
             "auth": {
               "type": "noauth"
@@ -301,11 +301,11 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:40286/api/pages/cars",
+              "raw": "http://localhost:40286/api/pages/slug/cars",
               "protocol": "http",
               "host": ["localhost"],
               "port": "40286",
-              "path": ["api", "pages", "cars"]
+              "path": ["api", "pages", "slug", "cars"]
             }
           },
           "response": []

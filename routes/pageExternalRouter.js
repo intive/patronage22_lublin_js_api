@@ -15,6 +15,8 @@ router.get("/", pageController.getAllPages);
 
 router.get("/:id", pageController.getOnePage);
 
+router.get("/:slug", pageController.getOnePageBySlug);
+
 router.put("/:id", pageController.updatePage);
 
 router.delete("/:id", pageController.deletePage);

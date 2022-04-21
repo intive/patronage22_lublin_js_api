@@ -293,6 +293,24 @@
           "response": []
         },
         {
+          "name": "GET /api/pages/:slug",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/pages/cars",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "pages", "cars"]
+            }
+          },
+          "response": []
+        },
+        {
           "name": "PUT /api/pages/:id",
           "request": {
             "auth": {

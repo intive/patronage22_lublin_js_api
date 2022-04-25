@@ -8,13 +8,13 @@ const app = express()
 
 const authMiddleware = require('./middleware/auth')
 const notFoundMiddleware = require('./middleware/notFound');
-const errorHandlerMiddleware = require('./middleware/errorHandler')
+const errorHandlerMiddleware = require('./middleware/errorHandler');
 
 const corsOptions = {
   origin:'*',
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200,
-};
+}
 // origin: 'mysql51.mydevil.net',
 
 app.use(cors(corsOptions))
@@ -33,7 +33,7 @@ app.use('/api/usersExternal', externalUsersRouter)
 
 // Router for products
 const productRouter = require('./routes/productRouter.js')
-app.use('/api/products', authMiddleware, productRouter)
+app.use('/api/products', authMiddleware, productRouter);
 
 // Router for categories
 const categoryRouter = require('./routes/categoryRouter.js')
@@ -61,7 +61,7 @@ app.use('/api/pages', authMiddleware, pagesRouter);
 app.use(errorHandlerMiddleware)
 app.use(notFoundMiddleware)
 
-const PORT = process.env.PORT || 40286;
+const PORT = process.env.PORT || 40286
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)

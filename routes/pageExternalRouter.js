@@ -9,16 +9,9 @@ router.use((req, res, next) => {
   next();
 });
 
-router.post("/addPage", pageController.addPage);
-
 router.get("/", pageController.getAllPages);
 
-router.get("/:id", pageController.getOnePage);
+router.get("/:slug", pageController.getOnePageBySlug);
 
-router.get("/slug/:slug", pageController.getOnePageBySlug);
-
-router.put("/:id", pageController.updatePage);
-
-router.delete("/:id", pageController.deletePage);
 
 module.exports = router;

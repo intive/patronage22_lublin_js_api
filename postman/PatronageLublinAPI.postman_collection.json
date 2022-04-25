@@ -228,34 +228,6 @@
       "name": "PagesWithoutAuth",
       "item": [
         {
-          "name": "POST /api/pages/addPage",
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"title\": \"about-us\",\r\n    \"description\": \"About-us page. Here you can find essential info about our company\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:40286/api/pages/addPage",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "40286",
-              "path": ["api", "pages", "addPage"]
-            },
-            "description": "This route is for adding new page.\n\nTo add a new page:\n\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Insert new category in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String  \n    }\n*   Send a request."
-          },
-          "response": []
-        },
-        {
           "name": "GET /api/pages",
           "request": {
             "auth": {
@@ -275,7 +247,7 @@
           "response": []
         },
         {
-          "name": "GET /api/pages/:id",
+          "name": "GET /api/pages/:slug",
           "request": {
             "auth": {
               "type": "noauth"
@@ -283,77 +255,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:40286/api/pages/2",
+              "raw": "http://localhost:40286/api/pages/cars",
               "protocol": "http",
               "host": ["localhost"],
               "port": "40286",
-              "path": ["api", "pages", "2"]
+              "path": ["api", "pages", "cars"]
             }
-          },
-          "response": []
-        },
-        {
-          "name": "GET /api/pages/slug/:slug",
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:40286/api/pages/slug/cars",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "40286",
-              "path": ["api", "pages", "slug", "cars"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "PUT /api/pages/:id",
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"description\": \"Your very first personal page\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:40286/api/pages/1",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "40286",
-              "path": ["api", "pages", "1"]
-            },
-            "description": "Update a single page by its id\n\nTo update a page:\n\n*   Select a page id you want to change\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Select a field you want to update and write in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    }\n*   Send a request"
-          },
-          "response": []
-        },
-        {
-          "name": "DELETE  /api/pages/:id",
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:40286/api/pages/1",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "40286",
-              "path": ["api", "pages", "1"]
-            },
-            "description": "Delete a page by its id"
           },
           "response": []
         }

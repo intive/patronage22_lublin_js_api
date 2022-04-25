@@ -1,1344 +1,1123 @@
 {
-	"info": {
-		"_postman_id": "33c11754-a048-405d-8ab6-4de93e6f2723",
-		"name": "PatronageLublinAPI",
-		"description": "### **Welcome on board!**\n\nHere you will find all API endpoints we use in our project.",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "ProductsWithoutAuth",
-			"item": [
-				{
-					"name": "GET /api/products/getAllProductsExternal",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/products/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"products",
-								""
-							]
-						},
-						"description": "Get all products without authentication"
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/products/getAllPublishedProductsExternal",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/products/getAllPublishedProductsExternal",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"products",
-								"getAllPublishedProductsExternal"
-							]
-						},
-						"description": "Get all published products without authentication"
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/products/external/:id",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/products/external/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"products",
-								"external",
-								"1"
-							]
-						},
-						"description": "Get single products without authentication by its id."
-					},
-					"response": []
-				}
-			],
-			"description": "All routes for products without authentication",
-			"auth": {
-				"type": "noauth"
-			},
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
-			]
-		},
-		{
-			"name": "CategoryWithoutAuth",
-			"item": [
-				{
-					"name": "POST /api/categories/addCategory",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"books\",\r\n    \"description\": \"Enjoy reading books. But category description required minimum 25 characters.\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:40286/api/categories/addCategory",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"categories",
-								"addCategory"
-							]
-						},
-						"description": "This route is for adding new category.\n\nTo add a new category:\n\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Insert new category in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String  \n    }\n*   Send a request."
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/categories",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/categories",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"categories"
-							]
-						},
-						"description": "Get all categories."
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/categories/:id",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/categories/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"categories",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "PUT /api/categories/:id",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"description\": \"Your very first personal computer\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:40286/api/categories/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"categories",
-								"1"
-							]
-						},
-						"description": "Update a single category by its id\n\nTo update a category:\n\n*   Select a category id you want to change\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Select a field you want to update and write in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    }\n*   Send a request"
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE  /api/categories/:id",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/categories/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"categories",
-								"1"
-							]
-						},
-						"description": "Delete a category by its id"
-					},
-					"response": []
-				}
-			],
-			"auth": {
-				"type": "noauth"
-			},
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
-			]
-		},
-		{
-			"name": "Products",
-			"item": [
-				{
-					"name": "POST /api/products/addProduct",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:40286/api/products/addProduct",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"products",
-								"addProduct"
-							]
-						},
-						"description": "This route is for adding new product.\n\nTo add a new product:\n\n*   You must be authorized.\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Insert new product in the following syntax:  \n    {  \n    \"title\": String,  \n    \"price\": Number,  \n    \"description\": String,  \n    \"published\": Boolean(initially false)  \n    }\n*   Send a request."
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/products/getAllProducts",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJFFPR21CbVM3bEVJZmNLNi5ad0paZGVwMy84T2VrZWdjL1NyM3UyUmNzbkM0dWZDWGNjN0VTIiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQxMToxMToxNy4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQxMToxMToxNy4wMDBaIn0sImlhdCI6MTY0ODM4MzQ5NSwiZXhwIjoxNjQ4OTg4Mjk1fQ.QzM-Pbn5JetXBIlaI4hX8fSTNeVcQpFA-kzc-ZRTh98",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:40286/api/products/getAllProducts",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"products",
-								"getAllProducts"
-							]
-						},
-						"description": "Get all products"
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/products/getAllPublishedProducts",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/products/getAllPublishedProducts",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"products",
-								"getAllPublishedProducts"
-							]
-						},
-						"description": "Get all published products"
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/products/:id",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/products/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"products",
-								"2"
-							]
-						},
-						"description": "Get a single product by its id"
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/products/getProductsByCategoryId/:id",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/products/getProductsByCategoryId/3",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"products",
-								"getProductsByCategoryId",
-								"3"
-							]
-						},
-						"description": "Get products by category id"
-					},
-					"response": []
-				},
-				{
-					"name": "PUT /api/products/:id",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/products/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"products",
-								"2"
-							]
-						},
-						"description": "Update a single product by its id\n\nTo update a product:\n\n*   You must be authorized.\n*   Select a product id you want to change\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Select a field you want to update and write in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    \"published\": Boolean(initially false)  \n    }\n*   Send a request"
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE /api/products/:id",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/products/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"products",
-								"2"
-							]
-						},
-						"description": "Delete a single product by its id"
-					},
-					"response": []
-				}
-			],
-			"description": "All routes for products. You must be authorized to access this page. To get authorized you have to navigate to the **Auth** routes and login with an existing user or register a new user then you should get your special ***token.***\n\nOnce you got your ***token:***\n\n*   Before sending a request open **Authorization** field.\n*   Make sure that that **Authorization** type is selected as **Bearer Token.**\n*   Provide your unique token in a special field **Token.**",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
-			]
-		},
-		{
-			"name": "Auth",
-			"item": [
-				{
-					"name": "POST /api/auth/login",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"A12345678\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:40286/api/auth/login",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"auth",
-								"login"
-							]
-						},
-						"description": "If your don't have our own account you could login with our test user described below.\n\nBefore sending a request make sure you have filled all necessary field on **Body raw (JSON).**"
-					},
-					"response": []
-				},
-				{
-					"name": "POST /api/auth/register",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Dmytro\",\r\n    \"email\": \"dmytro@email.com\",\r\n    \"password\": \"D12345678\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:40286/api/auth/register",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"auth",
-								"register"
-							]
-						},
-						"description": "Register by following an example below.\n\nBefore sending a request make sure you have filled all necessary field on **Body raw (JSON).**"
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/logout",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/auth/logout",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"auth",
-								"logout"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"description": "All routes for authentication."
-		},
-		{
-			"name": "Category",
-			"item": [
-				{
-					"name": "POST /api/categories/addCategory",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"books\",\r\n    \"description\": \"Enjoy reading books\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:40286/api/categories/addCategory",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"categories",
-								"addCategory"
-							]
-						},
-						"description": "This route is for adding new category.\n\nTo add a new category:\n\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Insert new category in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String  \n    }\n*   Send a request."
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/categories",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/categories",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"categories"
-							]
-						},
-						"description": "Get all categories."
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/categories/:id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/categories/5",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"categories",
-								"5"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "PUT /api/categories/:id",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Books\",\r\n    \"description\": \"Enjoy reading books\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:40286/api/categories/5",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"categories",
-								"5"
-							]
-						},
-						"description": "Update a single category by its id\n\nTo update a category:\n\n*   Select a category id you want to change\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Select a field you want to update and write in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    }\n*   Send a request"
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE  /api/categories/:id",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/categories/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"categories",
-								"1"
-							]
-						},
-						"description": "Delete a category by its id"
-					},
-					"response": []
-				}
-			],
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
-			]
-		},
-		{
-			"name": "Pages",
-			"item": [
-				{
-					"name": "POST /api/pages/addPage",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"books\",\r\n    \"description\": \"Enjoy reading books\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:40286/api/pages/addPage",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"pages",
-								"addPage"
-							]
-						},
-						"description": "This route is for adding new category.\n\nTo add a new category:\n\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Insert new category in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String  \n    }\n*   Send a request."
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/pages",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/pages",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"pages"
-							]
-						},
-						"description": "Get all categories."
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/pages/:id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/pages/5",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"pages",
-								"5"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "PUT /api/pages/:id",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Books\",\r\n    \"description\": \"Enjoy reading books\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:40286/api/pages/5",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"pages",
-								"5"
-							]
-						},
-						"description": "Update a single category by its id\n\nTo update a category:\n\n*   Select a category id you want to change\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Select a field you want to update and write in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    }\n*   Send a request"
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE  /api/pages/:id",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/pages/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"pages",
-								"1"
-							]
-						},
-						"description": "Delete a category by its id"
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Photo",
-			"item": [
-				{
-					"name": "GET /api/photos",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/photos",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"photos"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/photos/getAllPhotosByProductId/:id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/photos/getAllPhotosByProductId/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"photos",
-								"getAllPhotosByProductId",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/photos/getMainPhotoByProductId/:id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/photos/getMainPhotoByProductId/3",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"photos",
-								"getMainPhotoByProductId",
-								"3"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/photos/getPhotoById/:id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/photos/getPhotoById/4",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"photos",
-								"getPhotoById",
-								"4"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "PUT /api/photos/updatePhotoById/:id",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/photos/updatePhotoById/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"photos",
-								"updatePhotoById",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE /api/photos/deletePhotoById/:id",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/photos/deletePhotoById/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"photos",
-								"deletePhotoById",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE /api/photos/removeAllPhotosByProductId/:id",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/photos/removeAllPhotosByProductId/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"photos",
-								"removeAllPhotosByProductId",
-								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Upload",
-			"item": [
-				{
-					"name": "POST /api/upload",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "image",
-									"type": "file",
-									"src": []
-								},
-								{
-									"key": "product_id",
-									"value": "",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:40286/api/upload",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"upload"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "POST /uploadPhotos",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "image",
-									"type": "file",
-									"src": []
-								},
-								{
-									"key": "product_id",
-									"value": "",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:40286/uploadPhotos",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"uploadPhotos"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"description": "All upload routes. You need to be authorized to access.\n\nWhen `/api/upload` used please provide `form-data` with `image` key set to `file` and value.\n\nIf requirements are meet selected file will be uploaded to server in`/uploads` directory, but not saved to database.\n\nTo upload image, and also save it in to database please use `/uploadPhotos`. Please provide `form-data` with `image` key set to `file`, and `product_id` key as number.\n\n`product_id` must match `id` of a product already saved in database.\n\nBoth values are required to successfully upload and save.\n\nWhen all requirements are meet, file will be uploaded to `/uploads/images` and save in database as following example:\n\n``` javascript\n{\n        \"id\": 1,\n        \"product_id\": 1,\n        \"url\": \"uploads/images/1646732177419_sample.png\",\n        \"active\": true,\n        \"main_photo\": false,\n        \"createdAt\": \"2022-03-08T09:36:17.000Z\",\n        \"updatedAt\": \"2022-03-08T09:36:17.000Z\"\n}\n\n```"
-		},
-		{
-			"name": "UsersExternal",
-			"item": [
-				{
-					"name": "POST /api/usersExternal/addUserExternal",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:40286/api/usersExternal/addUserExternal",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"usersExternal",
-								"addUserExternal"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/usersExternal",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/usersExternal",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"usersExternal"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET /api/getAllActiveUsersExternal",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/usersExternal/getAllActiveUsersExternal",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"usersExternal",
-								"getAllActiveUsersExternal"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "PUT /api/usersExternal/:id",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:40286/api/usersExternal/63",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"usersExternal",
-								"63"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DEL /api/usersExternal/:id",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:40286/api/usersExternal/65",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"usersExternal",
-								"65"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET SINGLE /api/usersExternal/:id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:40286/api/usersExternal/42",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "40286",
-							"path": [
-								"api",
-								"usersExternal",
-								"42"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"auth": {
-				"type": "noauth"
-			},
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
-			]
-		}
-	],
-	"auth": {
-		"type": "apikey",
-		"apikey": [
-			{
-				"key": "value",
-				"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJFFPR21CbVM3bEVJZmNLNi5ad0paZGVwMy84T2VrZWdjL1NyM3UyUmNzbkM0dWZDWGNjN0VTIiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQxMToxMToxNy4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQxMToxMToxNy4wMDBaIn0sImlhdCI6MTY0OTE3OTMyMywiZXhwIjoxNjQ5Nzg0MTIzfQ.-gX1chbGfEe3n72zH7Isa6Zqd35v0PzdkSx9MSeK7ws",
-				"type": "string"
-			},
-			{
-				"key": "key",
-				"value": "Authorization",
-				"type": "string"
-			},
-			{
-				"key": "in",
-				"value": "header",
-				"type": "string"
-			}
-		]
-	},
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		}
-	]
+  "info": {
+    "_postman_id": "33c11754-a048-405d-8ab6-4de93e6f2723",
+    "name": "PatronageLublinAPI",
+    "description": "### **Welcome on board!**\n\nHere you will find all API endpoints we use in our project.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "ProductsWithoutAuth",
+      "item": [
+        {
+          "name": "GET /api/products/getAllProductsExternal",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/products/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "products", ""]
+            },
+            "description": "Get all products without authentication"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/products/getAllPublishedProductsExternal",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/products/getAllPublishedProductsExternal",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "products", "getAllPublishedProductsExternal"]
+            },
+            "description": "Get all published products without authentication"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/products/external/:id",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/products/external/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "products", "external", "1"]
+            },
+            "description": "Get single products without authentication by its id."
+          },
+          "response": []
+        }
+      ],
+      "description": "All routes for products without authentication",
+      "auth": {
+        "type": "noauth"
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        }
+      ]
+    },
+    {
+      "name": "CategoryWithoutAuth",
+      "item": [
+        {
+          "name": "POST /api/categories/addCategory",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"books\",\r\n    \"description\": \"Enjoy reading books. But category description required minimum 25 characters.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:40286/api/categories/addCategory",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "categories", "addCategory"]
+            },
+            "description": "This route is for adding new category.\n\nTo add a new category:\n\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Insert new category in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String  \n    }\n*   Send a request."
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/categories",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/categories",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "categories"]
+            },
+            "description": "Get all categories."
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/categories/:id",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/categories/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "categories", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /api/categories/:id",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"description\": \"Your very first personal computer\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:40286/api/categories/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "categories", "1"]
+            },
+            "description": "Update a single category by its id\n\nTo update a category:\n\n*   Select a category id you want to change\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Select a field you want to update and write in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    }\n*   Send a request"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE  /api/categories/:id",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/categories/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "categories", "1"]
+            },
+            "description": "Delete a category by its id"
+          },
+          "response": []
+        }
+      ],
+      "auth": {
+        "type": "noauth"
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        }
+      ]
+    },
+    {
+      "name": "PagesWithoutAuth",
+      "item": [
+        {
+          "name": "GET /api/pages",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/pages",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "pages"]
+            },
+            "description": "Get all pages."
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/pages/:slug",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/pages/cars",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "pages", "cars"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "auth": {
+        "type": "noauth"
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "POST /api/products/addProduct",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:40286/api/products/addProduct",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "products", "addProduct"]
+            },
+            "description": "This route is for adding new product.\n\nTo add a new product:\n\n*   You must be authorized.\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Insert new product in the following syntax:  \n    {  \n    \"title\": String,  \n    \"price\": Number,  \n    \"description\": String,  \n    \"published\": Boolean(initially false)  \n    }\n*   Send a request."
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/products/getAllProducts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJFFPR21CbVM3bEVJZmNLNi5ad0paZGVwMy84T2VrZWdjL1NyM3UyUmNzbkM0dWZDWGNjN0VTIiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQxMToxMToxNy4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQxMToxMToxNy4wMDBaIn0sImlhdCI6MTY0ODM4MzQ5NSwiZXhwIjoxNjQ4OTg4Mjk1fQ.QzM-Pbn5JetXBIlaI4hX8fSTNeVcQpFA-kzc-ZRTh98",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:40286/api/products/getAllProducts",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "products", "getAllProducts"]
+            },
+            "description": "Get all products"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/products/getAllPublishedProducts",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/products/getAllPublishedProducts",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "products", "getAllPublishedProducts"]
+            },
+            "description": "Get all published products"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/products/:id",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/products/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "products", "2"]
+            },
+            "description": "Get a single product by its id"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/products/getProductsByCategoryId/:id",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/products/getProductsByCategoryId/3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "products", "getProductsByCategoryId", "3"]
+            },
+            "description": "Get products by category id"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /api/products/:id",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/products/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "products", "2"]
+            },
+            "description": "Update a single product by its id\n\nTo update a product:\n\n*   You must be authorized.\n*   Select a product id you want to change\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Select a field you want to update and write in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    \"published\": Boolean(initially false)  \n    }\n*   Send a request"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /api/products/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/products/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "products", "2"]
+            },
+            "description": "Delete a single product by its id"
+          },
+          "response": []
+        }
+      ],
+      "description": "All routes for products. You must be authorized to access this page. To get authorized you have to navigate to the **Auth** routes and login with an existing user or register a new user then you should get your special ***token.***\n\nOnce you got your ***token:***\n\n*   Before sending a request open **Authorization** field.\n*   Make sure that that **Authorization** type is selected as **Bearer Token.**\n*   Provide your unique token in a special field **Token.**",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "POST /api/auth/login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"A12345678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:40286/api/auth/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "auth", "login"]
+            },
+            "description": "If your don't have our own account you could login with our test user described below.\n\nBefore sending a request make sure you have filled all necessary field on **Body raw (JSON).**"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /api/auth/register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Dmytro\",\r\n    \"email\": \"dmytro@email.com\",\r\n    \"password\": \"D12345678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:40286/api/auth/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "auth", "register"]
+            },
+            "description": "Register by following an example below.\n\nBefore sending a request make sure you have filled all necessary field on **Body raw (JSON).**"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/logout",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/auth/logout",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "auth", "logout"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "All routes for authentication."
+    },
+    {
+      "name": "Category",
+      "item": [
+        {
+          "name": "POST /api/categories/addCategory",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"books\",\r\n    \"description\": \"Enjoy reading books\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:40286/api/categories/addCategory",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "categories", "addCategory"]
+            },
+            "description": "This route is for adding new category.\n\nTo add a new category:\n\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Insert new category in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String  \n    }\n*   Send a request."
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/categories",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "categories"]
+            },
+            "description": "Get all categories."
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/categories/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/categories/5",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "categories", "5"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /api/categories/:id",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Books\",\r\n    \"description\": \"Enjoy reading books\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:40286/api/categories/5",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "categories", "5"]
+            },
+            "description": "Update a single category by its id\n\nTo update a category:\n\n*   Select a category id you want to change\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Select a field you want to update and write in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    }\n*   Send a request"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE  /api/categories/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/categories/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "categories", "1"]
+            },
+            "description": "Delete a category by its id"
+          },
+          "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pages",
+      "item": [
+        {
+          "name": "POST /api/pages/addPage",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"books\",\r\n    \"description\": \"Enjoy reading books\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:40286/api/pages/addPage",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "pages", "addPage"]
+            },
+            "description": "This route is for adding new category.\n\nTo add a new category:\n\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Insert new category in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String  \n    }\n*   Send a request."
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/pages",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/pages",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "pages"]
+            },
+            "description": "Get all categories."
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/pages/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/pages/5",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "pages", "5"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /api/pages/:id",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Books\",\r\n    \"description\": \"Enjoy reading books\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:40286/api/pages/5",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "pages", "5"]
+            },
+            "description": "Update a single category by its id\n\nTo update a category:\n\n*   Select a category id you want to change\n*   Open **Body** field and select **raw** button.\n*   Make sure your text format is selected as **JSON.**\n*   Select a field you want to update and write in the following syntax:  \n    {  \n    \"title\": String,  \n    \"description\": String,  \n    }\n*   Send a request"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE  /api/pages/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/pages/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "pages", "1"]
+            },
+            "description": "Delete a category by its id"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Photo",
+      "item": [
+        {
+          "name": "GET /api/photos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/photos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "photos"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/photos/getAllPhotosByProductId/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/photos/getAllPhotosByProductId/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "photos", "getAllPhotosByProductId", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/photos/getMainPhotoByProductId/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/photos/getMainPhotoByProductId/3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "photos", "getMainPhotoByProductId", "3"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/photos/getPhotoById/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/photos/getPhotoById/4",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "photos", "getPhotoById", "4"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /api/photos/updatePhotoById/:id",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/photos/updatePhotoById/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "photos", "updatePhotoById", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /api/photos/deletePhotoById/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/photos/deletePhotoById/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "photos", "deletePhotoById", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /api/photos/removeAllPhotosByProductId/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/photos/removeAllPhotosByProductId/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "photos", "removeAllPhotosByProductId", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Upload",
+      "item": [
+        {
+          "name": "POST /api/upload",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "product_id",
+                  "value": "",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:40286/api/upload",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "upload"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /uploadPhotos",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "product_id",
+                  "value": "",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:40286/uploadPhotos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["uploadPhotos"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "All upload routes. You need to be authorized to access.\n\nWhen `/api/upload` used please provide `form-data` with `image` key set to `file` and value.\n\nIf requirements are meet selected file will be uploaded to server in`/uploads` directory, but not saved to database.\n\nTo upload image, and also save it in to database please use `/uploadPhotos`. Please provide `form-data` with `image` key set to `file`, and `product_id` key as number.\n\n`product_id` must match `id` of a product already saved in database.\n\nBoth values are required to successfully upload and save.\n\nWhen all requirements are meet, file will be uploaded to `/uploads/images` and save in database as following example:\n\n``` javascript\n{\n        \"id\": 1,\n        \"product_id\": 1,\n        \"url\": \"uploads/images/1646732177419_sample.png\",\n        \"active\": true,\n        \"main_photo\": false,\n        \"createdAt\": \"2022-03-08T09:36:17.000Z\",\n        \"updatedAt\": \"2022-03-08T09:36:17.000Z\"\n}\n\n```"
+    },
+    {
+      "name": "UsersExternal",
+      "item": [
+        {
+          "name": "POST /api/usersExternal/addUserExternal",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:40286/api/usersExternal/addUserExternal",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "usersExternal", "addUserExternal"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/usersExternal",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/usersExternal",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "usersExternal"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/getAllActiveUsersExternal",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/usersExternal/getAllActiveUsersExternal",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "usersExternal", "getAllActiveUsersExternal"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /api/usersExternal/:id",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:40286/api/usersExternal/63",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "usersExternal", "63"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DEL /api/usersExternal/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:40286/api/usersExternal/65",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "usersExternal", "65"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET SINGLE /api/usersExternal/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:40286/api/usersExternal/42",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "40286",
+              "path": ["api", "usersExternal", "42"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "auth": {
+        "type": "noauth"
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "value",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJFFPR21CbVM3bEVJZmNLNi5ad0paZGVwMy84T2VrZWdjL1NyM3UyUmNzbkM0dWZDWGNjN0VTIiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQxMToxMToxNy4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQxMToxMToxNy4wMDBaIn0sImlhdCI6MTY0OTE3OTMyMywiZXhwIjoxNjQ5Nzg0MTIzfQ.-gX1chbGfEe3n72zH7Isa6Zqd35v0PzdkSx9MSeK7ws",
+        "type": "string"
+      },
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ]
 }
